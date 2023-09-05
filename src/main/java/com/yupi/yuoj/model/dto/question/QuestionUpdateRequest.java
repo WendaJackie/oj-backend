@@ -40,14 +40,14 @@ public class QuestionUpdateRequest implements Serializable {
     private String answer;
 
     /**
-     * 判题用例（json 数组）
+     * 判题用例
      */
-    private String judgeCase;
+    private List<JudgeCase> judgeCase;
 
     /**
-     * 判题配置（json 对象）
+     * 判题配置
      */
-    private String judgeConfig;
+    private JudgeConfig judgeConfig;
 
     private static final long serialVersionUID = 1L;
 }

@@ -42,7 +42,7 @@ public interface PostService extends IService<Post> {
 
     /**
      * 获取帖子封装
-     *
+     * 对单条数据脱敏
      * @param post
      * @param request
      * @return
@@ -51,7 +51,7 @@ public interface PostService extends IService<Post> {
 
     /**
      * 分页获取帖子封装
-     *
+     * 对分页数据脱敏
      * @param postPage
      * @param request
      * @return
