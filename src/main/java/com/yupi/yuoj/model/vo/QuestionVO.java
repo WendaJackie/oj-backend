@@ -1,7 +1,6 @@
 package com.yupi.yuoj.model.vo;
 
 import cn.hutool.json.JSONUtil;
-import com.google.gson.reflect.TypeToken;
 import com.yupi.yuoj.model.dto.question.JudgeConfig;
 import com.yupi.yuoj.model.entity.Question;
 import lombok.Data;

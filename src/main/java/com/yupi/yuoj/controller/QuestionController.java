@@ -11,7 +11,6 @@ import com.yupi.yuoj.constant.UserConstant;
 import com.yupi.yuoj.exception.BusinessException;
 import com.yupi.yuoj.exception.ThrowUtils;
 import com.yupi.yuoj.model.dto.question.*;
-import com.yupi.yuoj.model.dto.user.UserQueryRequest;
 import com.yupi.yuoj.model.entity.Question;
 import com.yupi.yuoj.model.entity.User;
 import com.yupi.yuoj.model.vo.QuestionVO;
@@ -148,6 +147,29 @@ public class QuestionController {
 
     /**
      * 根据 id 获取
+     * 修改页面必须要返回所有的原始数据
+     * @param id
+     * @return
+     */
+    @GetMapping("/get")
+    public BaseResponse<Question> getQuestionById(long id, HttpServletRequest request) {
+        if (id <= 0) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        Question question = questionService.getById(id);
+        if (question == null) {
+            throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
+        }
+        User loginUser = userService.getLoginUser(request);
+        // 不是本人或管理员，不能获取所有信息
+        if (!question.getUserId().equals(loginUser.getId()) && userService.isAdmin(loginUser)) {
+            throw new BusinessException(ErrorCode.NO_AUTH_ERROR);
+        }
+        return ResultUtils.success(question);
+    }
+
+    /**
+     * 根据 id 获取（脱敏）
      *
      * @param id
      * @return
