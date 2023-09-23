@@ -3,6 +3,7 @@ package com.yupi.yuoj.model.dto.question;
 import com.yupi.yuoj.common.PageRequest;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,8 +11,6 @@ import java.util.List;
 /**
  * 查询请求
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

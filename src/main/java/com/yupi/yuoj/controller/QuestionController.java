@@ -32,8 +32,6 @@ import java.util.List;
 /**
  * 题目接口
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 @RestController
 @RequestMapping("/question")
@@ -170,7 +168,7 @@ public class QuestionController {
         }
         User loginUser = userService.getLoginUser(request);
         // 不是本人或管理员，不能获取所有信息
-        if (!question.getUserId().equals(loginUser.getId()) && userService.isAdmin(loginUser)) {
+        if (!question.getUserId().equals(loginUser.getId()) && !userService.isAdmin(loginUser)) {
             throw new BusinessException(ErrorCode.NO_AUTH_ERROR);
         }
         return ResultUtils.success(question);
