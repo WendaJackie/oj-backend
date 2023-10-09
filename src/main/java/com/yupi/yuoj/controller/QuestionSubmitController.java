@@ -26,7 +26,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 题目提交接口
+ * 题目提交接口（已弃用）
+ * 全部移到题目服务里面去了
  */
 @RestController
 //@RequestMapping("/question_submit")
